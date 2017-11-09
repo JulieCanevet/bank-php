@@ -24,4 +24,28 @@ class CountManager{
 		$counts = $req -> fetchAll();
 		return $counts;
 	}
+
+	public function delete($id){
+		$req = $this -> _db -> prepare('DELETE FROM counts
+			WHERE id = :id');
+		$req -> execute(array(
+			'id' => $id
+		));
+	}
+
+	public function remove($id, $amount){
+		$req = $this -> _db -> prepare('UPDATE counts SET amount = :amount');
+		$req -> execute(array(
+			'amount' => $amount
+		));
+	}
 }
+
+
+
+
+
+
+
+
+
