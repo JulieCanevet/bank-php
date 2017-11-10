@@ -9,7 +9,7 @@
 
     <p>compte n°<?php echo $value['id'] ?></p>
 
-    <h4>Montant : <?php echo $value['amount'] ?>€</h4>
+    <h4 class="color">Montant : <span class="sum"><?php echo $value['amount'] ?></span>€</h4>
 <article class="actions">
           <form method="POST" action="index.php">
             <input type="hidden" name="id" value="<?php echo $value['id']?>">
