@@ -4,12 +4,12 @@ $('.plus').click(function(){
 
  $('.sum').each(function(index){
  	if($('.sum').eq(index).text() > 0){
- 		$('.color').eq(index).css('color', 'green');
+ 		$('.color').eq(index).css('color', '#67ce0a');
  	}
  })
  
  $('.sum').each(function(index){
 	if($('.sum').eq(index).text() < 0){
-		$('.color').eq(index).css('color', 'red');
+		$('.color').eq(index).css('color', '#c30e15');
  	}
  })
