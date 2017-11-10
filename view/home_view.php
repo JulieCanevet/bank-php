@@ -19,7 +19,7 @@
           
           <form class="card-button" method="POST" action="index.php">
             <input type="hidden" name="id" value="<?php echo $value['id']?>">
-            <button type="submit" name="more">Ajouter</button>
+            <button type="submit" name="addMoneyForm">Ajouter</button>
           </form>
 
           <form class="card-button delete" method="POST" action="index.php">

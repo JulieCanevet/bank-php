@@ -52,6 +52,15 @@ class CountManager{
 			'amount' => $amount
 		));
 	}
+
+	public function addMoney($id, $amount){ // Operation retrait
+		$req = $this -> _db -> prepare('UPDATE counts SET amount = :amount
+			WHERE id = :id');
+		$req -> execute(array(
+			'id' => $id,
+			'amount' => $amount
+		));
+	}
 }
 
 
