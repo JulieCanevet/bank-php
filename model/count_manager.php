@@ -25,6 +25,16 @@ class CountManager{
 		return $counts;
 	}
 
+	public function getOneCount($id){
+		$req = $this -> _db -> prepare('SELECT * FROM counts
+			WHERE id = :id');
+		$req -> execute(array(
+			'id' => $id
+		));
+		$oneCount = $req -> fetch();
+		return $oneCount;
+	}
+
 	public function delete($id){
 		$req = $this -> _db -> prepare('DELETE FROM counts
 			WHERE id = :id');
@@ -33,9 +43,12 @@ class CountManager{
 		));
 	}
 
-	public function remove($id, $amount){
-		$req = $this -> _db -> prepare('UPDATE counts SET amount = :amount');
+
+	public function remove($id, $amount){ // Operation retrait
+		$req = $this -> _db -> prepare('UPDATE counts SET amount = :amount
+			WHERE id = :id');
 		$req -> execute(array(
+			'id' => $id,
 			'amount' => $amount
 		));
 	}

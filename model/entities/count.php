@@ -33,5 +33,5 @@ class Count {
 // GETTERS 
 	public function getId(){return $this -> _id;}
 	public function getName(){return $this -> _name;}
-	public function getAmout(){return $this -> _amount;}
+	public function getAmount(){return $this -> _amount;}
 }

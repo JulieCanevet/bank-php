@@ -6,16 +6,10 @@
                 <div class="form-group">
                     <input type="text" name="amount" class="form-control" placeholder="somme que vous souhaitez retirer">
                 </div>
-                <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Retrait" name="remove">
+                <input type="hidden" name="id" value="<?php echo $_POST['id']?>">
+                <input type="submit" class="btn btn-custom btn-lg btn-block" value="Retrait" name="remove">
             </form>
             <hr>
         </div>
-    </div> <!-- /.container -->
-
+    </div>
 </section>
-
-         <form class="card-button" id="remove" method="POST" action="index.php">
-            <input type="hidden" name="id" value="<?php echo $value['id']?>">
-            <button type="submit" name="remove">Retrait</button>
-          </form>
-          
