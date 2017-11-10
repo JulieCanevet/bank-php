@@ -48,6 +48,26 @@ if(isset($_POST['addMoney']) && isset($_POST['id'])){
 	$manager -> addMoney($id, $newAmount); // nouvelle somme en bdd
 }
 
+// EFFECTUER UN VIREMENT
+if(isset($_POST['transferForm'])){
+	require 'view/transfer_view.php';
+}	
+	if(isset($_POST['transfer']) && !empty($_POST['transmitterCount']) && !empty($_POST['transferSum']) && !empty($_POST['receiverCount'])){
+			  	require 'model/entities/count.php';
+
+		$transmitterCount = $_POST['transmitterCount'];
+		$transferSum = $_POST['transferSum'];
+		$receiverCount = $_POST['receiverCount'];
+
+		$comptemeteur = $manager -> getOneCount($transmitterCount);
+		$nvx = $comptemeteur['amount'] - $transferSum;
+
+		$comptereceveur = $manager -> getOneCount($receiverCount);
+		$nvl = $comptereceveur['amount'] + $transferSum;
+
+		$manager -> addMoney($receiverCount, $nvl);
+		$manager -> remove($transmitterCount, $nvx);
+	}
 
 // SUPPRIMER UN COMPTE
 if(isset($_POST['delete'])){

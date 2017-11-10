@@ -7,6 +7,7 @@
     <h3><?php echo $value['name'] ?></h3>
 
    	<h4>Montant : <?php echo $value['amount'] ?>€</h4>
+    <p>identifiant : <?php echo $value['id'] ?></p>
           <form class="card-button" method="POST" action="index.php">
             <input type="hidden" name="id" value="<?php echo $value['id']?>">
             <button type="submit" name="removeForm">Retrait</button>
@@ -14,7 +15,7 @@
 
           <form class="card-button" method="POST" action="index.php">
             <input type="hidden" name="id" value="<?php echo $value['id']?>">
-            <button type="submit" name="transfer">Virement</button>
+            <button type="submit" name="transferForm">Virement</button>
           </form>
           
           <form class="card-button" method="POST" action="index.php">
