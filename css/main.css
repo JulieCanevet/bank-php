@@ -97,8 +97,22 @@ textarea {
 .add {
     display: none;
 }
-
-
+.line {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background-color: lightgrey;
+    margin-top: 1em;
+    align-items: center;
+    padding: .2em;
+}
+button {
+    background-color: transparent;
+    border-color: transparent;
+}
+.actions {
+    display: flex;
+}
 
 
 
