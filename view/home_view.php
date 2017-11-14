@@ -1,7 +1,7 @@
 <section id="home">
-<button type="submit" name="plus" class="plus"><i class="fa fa-plus" aria-hidden="true"></i> Nouveau compte</button> <!-- Bouton d'ajout -->
+<button type="submit" name="plus" class="plus"><i class="fa fa-plus" aria-hidden="true"></i> Nouveau compte</button> <!-- add new account button -->
   <?php
-  if(isset($counts)){
+  if(isset($counts)){ // display list of accounts
       foreach ($counts as $key => $value) {
   ?>
   <article class="line">

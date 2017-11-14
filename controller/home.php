@@ -6,10 +6,10 @@ require 'model/count_manager.php'; // call count manager model
 $manager = new CountManager($db); // access to db function
 
 require 'view/header_view.php'; 
-require 'view/add_view.php'; // formulaire caché d'ajout
+require 'view/add_view.php'; // add new account form
 
 
-// AJOUTER DE NOUVEAUX COMPTES
+// ADD NEW ACCOUNT
 if(isset($_POST['add']) && isset($_POST['name'])){ // if form is completed and sent
   	require 'model/entities/count.php';
   	$count = new Count(array('name' => $_POST['name']));
@@ -18,47 +18,48 @@ if(isset($_POST['add']) && isset($_POST['name'])){ // if form is completed and s
 
 
 
-// RETIRER DE L'ARGENT
-if(isset($_POST['removeForm'])){ // Quand on clique sur retrait
-  	require 'view/remove_view.php';	// Affichage du formulaire
-	$id = intval(htmlspecialchars($_POST['id'])); // Retient l'id cliqué
+// WITHDRAW MONEY
+if(isset($_POST['removeForm'])){ // whene we click on to remove money
+  	require 'view/remove_view.php';	// display form
+	$id = intval(htmlspecialchars($_POST['id'])); // clicked id retained
 }
 
 if(isset($_POST['remove']) && isset($_POST['id'])){
 	  	require 'model/entities/count.php';
 
-	$id = intval(htmlspecialchars($_POST['id'])); // Retient l'id cliqué
-	$thisAmount = $manager -> getOneCount($id); // Selectionne le bon compte
-	$newAmount = $thisAmount['amount'] - $_POST['amount']; // soustrait la nouvelle somme de l'ancienne
-	$manager -> remove($id, $newAmount); // nouvelle somme en bdd
+	$id = intval(htmlspecialchars($_POST['id'])); // clicked id retained
+	$thisAmount = $manager -> getOneCount($id); // Select the right account
+	$newAmount = $thisAmount['amount'] - $_POST['amount']; // subtract the new sum from the old
+	$manager -> remove($id, $newAmount); // new sum in db
 }
 
-// AJOUTER DE L'ARGENT
-if(isset($_POST['addMoneyForm'])){ // Quand on clique sur retrait
-  	require 'view/add_money_view.php';	// Affichage du formulaire
-	$id = intval(htmlspecialchars($_POST['id'])); // Retient l'id cliqué
+// ADD MONEY
+if(isset($_POST['addMoneyForm'])){ // Whene we click on add money
+  	require 'view/add_money_view.php';	// display form
+	$id = intval(htmlspecialchars($_POST['id'])); // clicked id retained
 }
 
 if(isset($_POST['addMoney']) && isset($_POST['id'])){
 	require 'model/entities/count.php';
 
-	$id = intval(htmlspecialchars($_POST['id'])); // Retient l'id cliqué
-	$thisAmount = $manager -> getOneCount($id); // Selectionne le bon compte
-	$newAmount = $thisAmount['amount'] + $_POST['amount']; // soustrait la nouvelle somme de l'ancienne
-	$manager -> addMoney($id, $newAmount); // nouvelle somme en bdd
+	$id = intval(htmlspecialchars($_POST['id'])); // clicked id retained
+	$thisAmount = $manager -> getOneCount($id); // Select the right account
+	$newAmount = $thisAmount['amount'] + $_POST['amount']; // add the new sum to the old
+	$manager -> addMoney($id, $newAmount); // new sum in db
 }
 
-// EFFECTUER UN VIREMENT
+// TRANSFER MONEY
 if(isset($_POST['transferForm'])){
 	require 'view/transfer_view.php';
 }	
 if(isset($_POST['transfer']) && !empty($_POST['transmitterCount']) && !empty($_POST['transferSum']) && !empty($_POST['receiverCount'])){
   	require 'model/entities/count.php';				
+	
 	$transmitterCount = floatval($_POST['transmitterCount']);
 	$transferSum = floatval($_POST['transferSum']);
 	$receiverCount = floatval($_POST['receiverCount']);
 
-	if($transmitterCount != 0){
+	if($transmitterCount != 0){ // check if every field is correctly filled
 		if($transferSum != 0){
 			if($receiverCount != 0){
 				$comptemeteur = $manager -> getOneCount($transmitterCount);
@@ -86,7 +87,7 @@ if(isset($_POST['transfer']) && !empty($_POST['transmitterCount']) && !empty($_P
 
 
 
-// SUPPRIMER UN COMPTE
+// DELETE AN ACCOUNT
 if(isset($_POST['delete'])){
 	$id = intval(htmlspecialchars($_POST['id']));
 	$manager -> delete($id);

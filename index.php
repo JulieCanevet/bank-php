@@ -1,3 +1,3 @@
 <?php
-// Vue de l'accueil
+// home page view
 require 'controller/home.php'; 

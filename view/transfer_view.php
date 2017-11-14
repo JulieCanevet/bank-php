@@ -1,3 +1,4 @@
+<!-- Form to transfer money -->
 <section class="transmitterCount">
     <div class="container col-12 col-sm-6 col-md-6">
         <div class="form-wrap">
@@ -10,15 +11,9 @@
         </div>
     </div>
 </section>
-
-
-
-                <div class="form-group">
-                    <input type="text" name="transferSum" class="form-control" placeholder="Montant du virement">
-                </div>
-
-
-
+<div class="form-group">
+    <input type="text" name="transferSum" class="form-control" placeholder="Montant du virement">
+</div>
 <section class="receiverCount">
     <div class="container col-12 col-sm-6 col-md-6">
         <div class="form-wrap">
@@ -26,7 +21,6 @@
                 <div class="form-group">
                     <input type="text" name="receiverCount" class="form-control" placeholder="numéro du compte receveur">
                 </div>
-                
                 <input type="hidden" name="id" value="<?php echo $_POST['id']?>">
                 <input type="submit" class="btn btn-custom btn-lg btn-block" name="transfer" onclick="if(!confirm('confirmer le virement ?')) return false;" value="transfer">
             </form>

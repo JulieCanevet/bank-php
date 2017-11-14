@@ -1,3 +1,4 @@
+<!-- Withdrawal form -->
 <section class="remove">
     <div class="container col-12 col-sm-6 col-md-6">
         <div class="form-wrap">
