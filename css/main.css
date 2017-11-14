@@ -94,6 +94,36 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+header h1 {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    margin-left: 1em;
+    font-size: 2.5em;
+}
+.add {
+    display: none;
+}
+.line {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 1em;
+    background-color: #f6f5e2;
+    align-items: center;
+    padding: .2em;
+}
+button {
+    background-color: transparent;
+    border-color: transparent;
+}
+.actions {
+    display: flex;
+}
+
+i {
+    color: orange;
+}
+
+
 
 /* ==========================================================================
    Helper classes
