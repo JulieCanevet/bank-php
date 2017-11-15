@@ -102,28 +102,49 @@ header h1 {
 .add {
     display: none;
 }
-.line {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    margin-top: 1em;
-    background-color: #f6f5e2;
-    align-items: center;
-    padding: .2em;
+
+i {
+    color: orange;
 }
 button {
     background-color: transparent;
     border-color: transparent;
 }
+.line {
+    display: block;
+    border: 1px solid grey;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    margin-top: 1em;
+}
 .actions {
     display: flex;
+    max-width: 140px;
+    margin:auto;
 }
 
-i {
-    color: orange;
+@media only screen and (min-width: 750px) {
+
+.line {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background-color: #f6f5e2;
+    align-items: center;
+    padding: .2em;
+    border-color: transparent;
+    padding-left: 2em;
+}
+.actions{
+    margin: 0;
+}
+button {
+    background-color: transparent;
+    border-color: transparent;
 }
 
-
+}
 
 /* ==========================================================================
    Helper classes
